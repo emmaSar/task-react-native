@@ -69,7 +69,6 @@ export const providePlatformTextStyle = (
     }
     delete flatten.fontWeight;
   } else {
-    // Default to Regular if no weight specified
     flatten.fontFamily = `${flatten.fontFamily}-Regular`;
   }
 

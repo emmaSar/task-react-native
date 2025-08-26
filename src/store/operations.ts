@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { userService } from '../services/userService';
 
-// Async thunk for fetching users using the user service
 export const fetchUsers = createAsyncThunk(
   'users/fetchUsers',
   async (count: number = 10, { rejectWithValue }) => {

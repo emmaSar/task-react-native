@@ -2,6 +2,8 @@ export type Color =
   | 'primary'
   | 'secondary'
   | 'danger'
+  | 'error'
+  | 'success'
   | 'gray0'
   | 'gray05'
   | 'gray10'
@@ -21,6 +23,8 @@ export const Colors: IColor = {
   primary: '#F49300',
   secondary: '#1C8E00',
   danger: '#FF3B30',
+  error: '#FF3B30',
+  success: '#34C759',
   gray0: '#FFFFFF',
   gray05: '#F3F4F6',
   gray10: '#E5E7EB',

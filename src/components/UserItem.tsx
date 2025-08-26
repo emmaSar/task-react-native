@@ -11,20 +11,16 @@ interface UserItemProps {
 }
 
 const UserItem: React.FC<UserItemProps> = ({ user, onPress }) => {
-  // Get avatar URL - use profile picture if available, otherwise fallback to initials
-  const getAvatarUrl = useCallback(() => {
-    // If the user has a picture property, use it
+  const handlePress = useCallback(() => {
+    onPress();
+  }, [onPress]);
+
+  const avatarUrl = useMemo(() => {
     if (user.picture && user.picture.medium) {
       return user.picture.medium;
     }
     return '';
   }, [user.picture]);
-
-  const handlePress = useCallback(() => {
-    onPress();
-  }, [onPress]);
-
-  const avatarUrl = useMemo(() => getAvatarUrl(), [getAvatarUrl]);
   const userInitial = useMemo(
     () => user.name.charAt(0).toUpperCase(),
     [user.name],

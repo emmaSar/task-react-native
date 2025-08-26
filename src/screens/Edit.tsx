@@ -49,7 +49,7 @@ const Edit: React.FC<EditProps> = ({ navigation, route }) => {
       phone: '',
       age: '',
     },
-    mode: 'onChange', // Enable real-time validation
+    mode: 'onChange',
   });
 
   useEffect(() => {
@@ -64,14 +64,12 @@ const Edit: React.FC<EditProps> = ({ navigation, route }) => {
   }, [user, reset]);
 
   const onSubmit = (data: FormData) => {
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(data.email)) {
       Alert.alert('Error', 'Please enter a valid email address');
       return;
     }
 
-    // Phone validation
     const phoneRegex = /^\+?[\d\s\-()]+$/;
     if (!phoneRegex.test(data.phone)) {
       Alert.alert('Error', 'Please enter a valid phone number');
@@ -79,7 +77,7 @@ const Edit: React.FC<EditProps> = ({ navigation, route }) => {
     }
 
     const userData = {
-      ...user, // Preserve all existing user data including picture
+      ...user,
       id: user?.id || Date.now().toString(),
       name: data.name,
       email: data.email,
@@ -87,9 +85,7 @@ const Edit: React.FC<EditProps> = ({ navigation, route }) => {
       age: data.age ? parseInt(data.age, 10) : undefined,
     };
 
-    // Save to Redux store
     dispatch(updateUser(userData));
-    // Navigate back to UserList immediately after saving
     navigation.navigate('UserList');
   };
 

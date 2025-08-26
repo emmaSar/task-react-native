@@ -48,7 +48,6 @@ const Detail: React.FC<DetailProps> = ({ navigation, route }) => {
           text: 'Delete',
           style: 'destructive',
           onPress: () => {
-            // Delete from Redux store
             dispatch(deleteUser(user.id));
             Alert.alert('Success', 'User deleted successfully!', [
               {

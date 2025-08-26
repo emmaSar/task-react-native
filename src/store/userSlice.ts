@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchUsers } from './operations';
 
-// Types
 export interface User {
   id: string;
   name: string;
@@ -22,14 +21,12 @@ interface UserState {
   error: string | null;
 }
 
-// Initial state
 const initialState: UserState = {
   users: [],
   loading: false,
   error: null,
 };
 
-// User slice
 const userSlice = createSlice({
   name: 'users',
   initialState,
@@ -51,7 +48,6 @@ const userSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      // Fetch Users
       .addCase(fetchUsers.pending, state => {
         state.loading = true;
         state.error = null;

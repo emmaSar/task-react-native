@@ -29,39 +29,6 @@ A React Native application for managing user data with a modern, optimized archi
 - **React Native Vector Icons** - Icon library
 - **ESLint & Prettier** - Code quality tools
 
-## 📁 Project Structure
-
-```
-src/
-├── components/          # Reusable UI components
-│   ├── Button.tsx      # Custom button component
-│   ├── CustomTextInput.tsx # Form input component
-│   ├── ErrorScreen.tsx # Error display component
-│   ├── Header.tsx      # Navigation header
-│   ├── Icon.tsx        # Icon wrapper component
-│   ├── LoadingScreen.tsx # Loading indicator
-│   ├── Text.tsx        # Typography component
-│   └── UserItem.tsx    # User list item
-├── config/
-│   └── Colors.ts       # Design system colors
-├── navigation/
-│   ├── AppNavigator.tsx # Main navigation setup
-│   └── types.ts        # Navigation type definitions
-├── screens/
-│   ├── Detail.tsx      # User detail screen
-│   ├── Edit.tsx        # User edit screen
-│   └── UserList.tsx    # User list screen
-├── services/
-│   ├── api.ts          # API service layer
-│   └── userService.ts  # User-specific API calls
-├── store/
-│   ├── hooks.ts        # Redux hooks
-│   ├── operations.ts   # Async operations
-│   ├── store.ts        # Redux store configuration
-│   └── userSlice.ts    # User state management
-└── types/              # TypeScript type definitions
-```
-
 ## 🚀 Getting Started
 
 ### Prerequisites

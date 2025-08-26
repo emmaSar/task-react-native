@@ -1,7 +1,6 @@
 import { User } from '../store/userSlice';
 import api from './api';
 
-// API response types
 interface RandomUserResponse {
   results: Array<{
     gender: string;
@@ -67,14 +66,11 @@ interface RandomUserResponse {
   };
 }
 
-// User service functions
 export const userService = {
-  // Fetch users from Random User API
   async fetchUsers(count: number = 10): Promise<User[]> {
     try {
       const response = await api.get<RandomUserResponse>(`/?results=${count}`);
 
-      // Transform the API response to match our User interface
       const transformedUsers: User[] = (response.data?.results ?? []).map(
         user => ({
           id: user.login?.uuid ?? '',

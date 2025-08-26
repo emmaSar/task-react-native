@@ -19,9 +19,7 @@ const UserList: React.FC<UserListProps> = ({ navigation }) => {
   const dispatch = useAppDispatch();
   const { users, loading, error } = useAppSelector(state => state.users);
 
-  // Fetch users only once on component mount
   useEffect(() => {
-    // Only fetch if users array is empty
     if (users.length === 0) {
       dispatch(fetchUsers(10));
     }
@@ -38,17 +36,14 @@ const UserList: React.FC<UserListProps> = ({ navigation }) => {
     />
   );
 
-  // Show loading screen only when loading and no users
   if (loading && users.length === 0) {
     return <LoadingScreen message='Loading users...' />;
   }
 
-  // Show error screen when there's an error
   if (error) {
     return <ErrorScreen message={error} onRetry={onRefresh} />;
   }
 
-  // Show user list from Redux store
   return (
     <SafeAreaView style={styles.container}>
       <Header title='User List' />

@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-// Create axios instance with base configuration
 const api = axios.create({
   baseURL: 'https://randomuser.me/api',
   timeout: 10000,
@@ -9,7 +8,6 @@ const api = axios.create({
   },
 });
 
-// Request interceptor for logging
 api.interceptors.request.use(
   config => {
     return config;
@@ -19,7 +17,6 @@ api.interceptors.request.use(
   },
 );
 
-// Response interceptor for error handling
 api.interceptors.response.use(
   response => {
     return response;

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { StyleSheet } from 'react-native';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
@@ -29,34 +29,26 @@ const Icon: React.FC<IconProps> = ({
   type = 'MaterialIcons',
   style,
 }) => {
-  const iconStyle = useMemo(
-    () => [styles.icon, { color }, style],
-    [color, style],
-  );
+  const iconStyle = [styles.icon, { color }, style];
 
-  const renderIcon = useMemo(() => {
-    switch (type) {
-      case 'MaterialCommunityIcons':
-        return (
-          <MaterialCommunityIcons name={name} size={size} style={iconStyle} />
-        );
-      case 'Ionicons':
-        return <Ionicons name={name} size={size} style={iconStyle} />;
-      case 'FontAwesome':
-        return <FontAwesome name={name} size={size} style={iconStyle} />;
-      case 'FontAwesome5':
-        return <FontAwesome5 name={name} size={size} style={iconStyle} />;
-      default:
-        return <MaterialIcons name={name} size={size} style={iconStyle} />;
-    }
-  }, [type, name, size, iconStyle]);
-
-  return renderIcon;
+  switch (type) {
+    case 'MaterialCommunityIcons':
+      return (
+        <MaterialCommunityIcons name={name} size={size} style={iconStyle} />
+      );
+    case 'Ionicons':
+      return <Ionicons name={name} size={size} style={iconStyle} />;
+    case 'FontAwesome':
+      return <FontAwesome name={name} size={size} style={iconStyle} />;
+    case 'FontAwesome5':
+      return <FontAwesome5 name={name} size={size} style={iconStyle} />;
+    default:
+      return <MaterialIcons name={name} size={size} style={iconStyle} />;
+  }
 };
 
 const styles = StyleSheet.create({
   icon: {
-    // Default icon styles
     textAlign: 'center',
     textAlignVertical: 'center',
     includeFontPadding: false,
